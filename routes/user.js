@@ -42,8 +42,8 @@ router.put('/password', authMiddleware, (req, res) => {
     return res.status(400).json({ message: '请提供旧密码和新密码' });
   }
   
-  if (newPassword.length < 6) {
-    return res.status(400).json({ message: '新密码长度至少6位' });
+  if (newPassword.length < 3) {
+    return res.status(400).json({ message: '新密码长度至少3位' });
   }
   
   // 验证旧密码
@@ -103,5 +103,6 @@ router.get('/', authMiddleware, (req, res) => {
     });
   }
 });
+
 
 module.exports = router; 
